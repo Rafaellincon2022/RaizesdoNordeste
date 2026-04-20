@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "Raizes Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login Admin",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@raizes.com\",\n  \"senha\": \"Senha@123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Login Cliente",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"cliente@raizes.com\",\n  \"senha\": \"Senha@123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Pedidos - Criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{clienteToken}}" }
+        ],
+        "url": "{{baseUrl}}/pedidos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"unidadeId\": 1,\n  \"clienteId\": 2,\n  \"canalPedido\": \"APP\",\n  \"itens\": [\n    { \"produtoId\": 1, \"quantidade\": 2 }\n  ],\n  \"formaPagamento\": \"MOCK\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Pagamentos - Mock Aprovado",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+        ],
+        "url": "{{baseUrl}}/pagamentos/pedidos/1/mock",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"aprovado\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Pedidos - Listar por canal",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+        "url": "{{baseUrl}}/pedidos?canalPedido=APP"
+      }
+    },
+    {
+      "name": "Estoque - Consultar Unidade",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+        "url": "{{baseUrl}}/estoque/unidades/1"
+      }
+    },
+    {
+      "name": "Estoque - Saida com erro",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+        ],
+        "url": "{{baseUrl}}/estoque/saida",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"unidadeId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 9999\n}"
+        }
+      }
+    },
+    {
+      "name": "Fidelidade - Saldo",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{clienteToken}}" }],
+        "url": "{{baseUrl}}/fidelidade/usuarios/2/saldo"
+      }
+    },
+    {
+      "name": "Sem token - deve retornar 401",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/pedidos"
+      }
+    },
+    {
+      "name": "Sem permissao - cliente cria produto (403)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{clienteToken}}" }
+        ],
+        "url": "{{baseUrl}}/produtos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Teste sem permissao\",\n  \"preco\": 12.50,\n  \"ativo\": true\n}"
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "adminToken", "value": "" },
+    { "key": "clienteToken", "value": "" }
+  ]
+}

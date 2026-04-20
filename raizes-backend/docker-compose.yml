@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:8.0.36
+    container_name: raizes-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: raizesdb
+      MYSQL_USER: raizes
+      MYSQL_PASSWORD: raizes123
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mysql_data:
