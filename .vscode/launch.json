@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "RaizesBackendApplication",
+            "request": "launch",
+            "mainClass": "src.main.java.br.com.raizes.backend.RaizesBackendApplication",
+            "projectName": "raizes-backend"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RaizesBackendApplication<raizes-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.com.raizes.backend.RaizesBackendApplication",
+            "projectName": "raizes-backend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
