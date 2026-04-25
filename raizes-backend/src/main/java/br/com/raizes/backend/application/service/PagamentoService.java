@@ -12,34 +12,75 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+// service responsável por processar pagamentos
 @Service
 public class PagamentoService {
-    private final PedidoRepository pedidoRepository;
-    private final PagamentoRepository pagamentoRepository;
-    private final AuditoriaService auditoriaService;
 
-    public PagamentoService(PedidoRepository pedidoRepository, PagamentoRepository pagamentoRepository, AuditoriaService auditoriaService) {
-        this.pedidoRepository = pedidoRepository;
-        this.pagamentoRepository = pagamentoRepository;
-        this.auditoriaService = auditoriaService;
-    }
+private final PedidoRepository pedidoRepository;
+private final PagamentoRepository pagamentoRepository;
+private final AuditoriaService auditoriaService;
 
-    @Transactional
-    public PagamentoDtos.PagamentoResponse processar(Long pedidoId, boolean aprovado, String actorEmail) {
-        var pedido = pedidoRepository.findById(pedidoId)
-                .orElseThrow(() -> new ApiException("PEDIDO_NAO_ENCONTRADO", "Pedido nao encontrado.", HttpStatus.NOT_FOUND));
+// construtor com injeção de dependências
+public PagamentoService(PedidoRepository pedidoRepository, PagamentoRepository pagamentoRepository, AuditoriaService auditoriaService) {
+    this.pedidoRepository = pedidoRepository;
+    this.pagamentoRepository = pagamentoRepository;
+    this.auditoriaService = auditoriaService;
+}
 
-        Pagamento pagamento = pagamentoRepository.findByPedidoId(pedidoId).orElseGet(Pagamento::new);
-        pagamento.setPedido(pedido);
-        pagamento.setStatus(aprovado ? PagamentoStatus.APROVADO : PagamentoStatus.RECUSADO);
-        pagamento.setPayloadRetorno("{\"gateway\":\"mock\",\"status\":\"" + pagamento.getStatus().name() + "\"}");
-        pagamento.setRegistradoEm(Instant.now());
-        pagamento = pagamentoRepository.save(pagamento);
+// processa o pagamento de um pedido
+@Transactional
+public PagamentoDtos.PagamentoResponse processar(Long pedidoId, boolean aprovado, String actorEmail) {
 
-        pedido.setStatus(aprovado ? PedidoStatus.PAGO : PedidoStatus.CANCELADO);
-        pedidoRepository.save(pedido);
+    // busca o pedido pelo id
+    var pedido = pedidoRepository.findById(pedidoId)
+            .orElseThrow(() -> new ApiException(
+                    "PEDIDO_NAO_ENCONTRADO",
+                    "Pedido nao encontrado.",
+                    HttpStatus.NOT_FOUND
+            ));
 
-        auditoriaService.registrar(actorEmail, "PAGAMENTO_MOCK", "PEDIDO", pedidoId, "Status pagamento: " + pagamento.getStatus());
-        return new PagamentoDtos.PagamentoResponse(pedidoId, pagamento.getStatus(), pagamento.getPayloadRetorno());
-    }
+    // tenta encontrar pagamento existente ou cria um novo
+    Pagamento pagamento = pagamentoRepository.findByPedidoId(pedidoId)
+            .orElseGet(Pagamento::new);
+
+    // associa o pagamento ao pedido
+    pagamento.setPedido(pedido);
+
+    // define o status dependendo se foi aprovado ou não
+    pagamento.setStatus(aprovado ? PagamentoStatus.APROVADO : PagamentoStatus.RECUSADO);
+
+    // simula retorno de um gateway de pagamento (mock)
+    pagamento.setPayloadRetorno(
+            "{\"gateway\":\"mock\",\"status\":\"" + pagamento.getStatus().name() + "\"}"
+    );
+
+    // registra data/hora
+    pagamento.setRegistradoEm(Instant.now());
+
+    // salva pagamento
+    pagamento = pagamentoRepository.save(pagamento);
+
+    // atualiza status do pedido
+    pedido.setStatus(aprovado ? PedidoStatus.PAGO : PedidoStatus.CANCELADO);
+
+    // salva pedido
+    pedidoRepository.save(pedido);
+
+    // registra log/auditoria da ação
+    auditoriaService.registrar(
+            actorEmail,
+            "PAGAMENTO_MOCK",
+            "PEDIDO",
+            pedidoId,
+            "Status pagamento: " + pagamento.getStatus()
+    );
+
+    // retorna resposta
+    return new PagamentoDtos.PagamentoResponse(
+            pedidoId,
+            pagamento.getStatus(),
+            pagamento.getPayloadRetorno()
+    );
+}
+
 }

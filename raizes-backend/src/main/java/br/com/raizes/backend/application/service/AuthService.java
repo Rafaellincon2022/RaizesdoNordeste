@@ -11,52 +11,95 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+// essa classe é um service, ou seja, aqui fica a regra de negócio de autenticação
 @Service
 public class AuthService {
-    private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService;
-    private final AuthenticationManager authenticationManager;
 
-    public AuthService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, JwtService jwtService, AuthenticationManager authenticationManager) {
-        this.usuarioRepository = usuarioRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.jwtService = jwtService;
-        this.authenticationManager = authenticationManager;
-    }
+// repositório para acessar os usuários no banco
+private final UsuarioRepository usuarioRepository;
 
-    public AuthDtos.UserView register(AuthDtos.RegisterRequest request) {
-        usuarioRepository.findByEmail(request.email()).ifPresent(u -> {
-            throw new ApiException("EMAIL_JA_EXISTE", "E-mail ja cadastrado.", HttpStatus.CONFLICT);
-        });
-        Usuario usuario = new Usuario();
-        usuario.setNome(request.nome());
-        usuario.setEmail(request.email());
-        usuario.setRole(request.role());
-        usuario.setConsentimentoLgpd(request.consentimentoLgpd());
-        usuario.setSenhaHash(passwordEncoder.encode(request.senha()));
-        usuario = usuarioRepository.save(usuario);
-        return new AuthDtos.UserView(usuario.getId(), usuario.getNome(), usuario.getEmail(), usuario.getRole());
-    }
+// usado para criptografar a senha
+private final PasswordEncoder passwordEncoder;
 
-    public AuthDtos.AuthResponse login(AuthDtos.LoginRequest request) {
-        try {
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(request.email(), request.senha())
-            );
-        } catch (Exception ex) {
-            throw new ApiException("CREDENCIAIS_INVALIDAS", "E-mail ou senha invalidos.", HttpStatus.UNAUTHORIZED);
-        }
+// responsável por gerar o token JWT
+private final JwtService jwtService;
 
-        Usuario usuario = usuarioRepository.findByEmail(request.email())
-                .orElseThrow(() -> new ApiException("USUARIO_NAO_ENCONTRADO", "Usuario nao encontrado.", HttpStatus.NOT_FOUND));
+// usado pelo Spring Security para validar login
+private final AuthenticationManager authenticationManager;
 
-        String token = jwtService.generateToken(usuario);
-        return new AuthDtos.AuthResponse(
-                token,
-                "Bearer",
-                jwtService.getExpirationSeconds(),
-                new AuthDtos.UserView(usuario.getId(), usuario.getNome(), usuario.getEmail(), usuario.getRole())
+// construtor para injetar as dependências
+public AuthService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, JwtService jwtService, AuthenticationManager authenticationManager) {
+    this.usuarioRepository = usuarioRepository;
+    this.passwordEncoder = passwordEncoder;
+    this.jwtService = jwtService;
+    this.authenticationManager = authenticationManager;
+}
+
+// método para registrar um novo usuário
+public AuthDtos.UserView register(AuthDtos.RegisterRequest request) {
+
+    // verifica se já existe usuário com esse email
+    usuarioRepository.findByEmail(request.email()).ifPresent(u -> {
+        // se existir, lança erro
+        throw new ApiException("EMAIL_JA_EXISTE", "E-mail ja cadastrado.", HttpStatus.CONFLICT);
+    });
+
+    // cria um novo usuário
+    Usuario usuario = new Usuario();
+
+    // seta os dados vindos do request
+    usuario.setNome(request.nome());
+    usuario.setEmail(request.email());
+    usuario.setRole(request.role());
+    usuario.setConsentimentoLgpd(request.consentimentoLgpd());
+
+    // criptografa a senha antes de salvar (importante!)
+    usuario.setSenhaHash(passwordEncoder.encode(request.senha()));
+
+    // salva no banco
+    usuario = usuarioRepository.save(usuario);
+
+    // retorna os dados do usuário (sem senha)
+    return new AuthDtos.UserView(
+            usuario.getId(),
+            usuario.getNome(),
+            usuario.getEmail(),
+            usuario.getRole()
+    );
+}
+
+// método de login
+public AuthDtos.AuthResponse login(AuthDtos.LoginRequest request) {
+
+    try {
+        // tenta autenticar com email e senha
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.email(), request.senha())
         );
+    } catch (Exception ex) {
+        // se der erro, significa que login falhou
+        throw new ApiException("CREDENCIAIS_INVALIDAS", "E-mail ou senha invalidos.", HttpStatus.UNAUTHORIZED);
     }
+
+    // busca o usuário no banco pelo email
+    Usuario usuario = usuarioRepository.findByEmail(request.email())
+            .orElseThrow(() -> new ApiException("USUARIO_NAO_ENCONTRADO", "Usuario nao encontrado.", HttpStatus.NOT_FOUND));
+
+    // gera o token JWT para o usuário
+    String token = jwtService.generateToken(usuario);
+
+    // retorna o token + dados do usuário
+    return new AuthDtos.AuthResponse(
+            token, // token JWT
+            "Bearer", // tipo do token
+            jwtService.getExpirationSeconds(), // tempo de expiração
+            new AuthDtos.UserView(
+                    usuario.getId(),
+                    usuario.getNome(),
+                    usuario.getEmail(),
+                    usuario.getRole()
+            )
+    );
+}
+
 }

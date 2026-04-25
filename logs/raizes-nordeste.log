@@ -1,90 +1,153 @@
-2026-04-24T06:11:37.441-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Starting RaizesBackendApplication using Java 17.0.18 with PID 10596 (C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes started by HOME in C:\Users\HOME\Documents\RaizesdoNordeste)
-2026-04-24T06:11:37.441-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : No active profile set, falling back to 1 default profile: "default"
-2026-04-24T06:11:41.157-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-24T06:11:41.352-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 176 ms. Found 8 JPA repository interfaces.
-2026-04-24T06:11:43.284-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-04-24T06:11:43.340-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-24T06:11:43.342-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
-2026-04-24T06:11:43.536-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-24T06:11:43.539-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5985 ms
-2026-04-24T06:11:44.640-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-24T06:11:45.797-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@45ad3cd8
-2026-04-24T06:11:45.805-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-24T06:11:45.918-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/raizesdb (MySQL 8.0)
-2026-04-24T06:11:46.054-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.084s)
-2026-04-24T06:11:46.076-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `raizesdb`: 1
-2026-04-24T06:11:46.092-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Schema `raizesdb` is up to date. No migration necessary.
-2026-04-24T06:11:46.329-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-24T06:11:46.542-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2026-04-24T06:11:46.639-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-24T06:11:47.350-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-24T06:11:47.498-03:00  WARN 10596 --- [raizes-do-nordeste-backend] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-24T06:11:49.379-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-24T06:11:49.574-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-24T06:11:50.462-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-04-24T06:11:51.179-03:00  WARN 10596 --- [raizes-do-nordeste-backend] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-24T06:11:52.469-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2026-04-24T06:11:54.180-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-04-24T06:11:54.416-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Started RaizesBackendApplication in 17.718 seconds (process running for 18.926)
-2026-04-24T06:11:54.576-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-24T06:11:54.585-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-24T06:11:54.603-03:00  INFO 10596 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-04-24T06:39:30.041-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Starting RaizesBackendApplication using Java 17.0.18 with PID 8280 (C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes started by HOME in C:\Users\HOME\Documents\RaizesdoNordeste)
-2026-04-24T06:39:30.045-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : No active profile set, falling back to 1 default profile: "default"
-2026-04-24T06:39:33.003-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-24T06:39:33.141-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 8 JPA repository interfaces.
-2026-04-24T06:39:34.551-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-04-24T06:39:34.569-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-24T06:39:34.571-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
-2026-04-24T06:39:34.686-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-24T06:39:34.687-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4525 ms
-2026-04-24T06:39:35.379-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-24T06:39:35.605-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a66be41
-2026-04-24T06:39:35.609-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-24T06:39:35.683-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/raizesdb (MySQL 8.0)
-2026-04-24T06:39:35.769-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.057s)
-2026-04-24T06:39:35.797-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `raizesdb`: 1
-2026-04-24T06:39:35.804-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Schema `raizesdb` is up to date. No migration necessary.
-2026-04-24T06:39:35.973-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-24T06:39:36.077-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2026-04-24T06:39:36.153-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-24T06:39:36.856-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-24T06:39:36.946-03:00  WARN 8280 --- [raizes-do-nordeste-backend] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-24T06:39:38.694-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-24T06:39:38.846-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-24T06:39:39.498-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-04-24T06:39:40.068-03:00  WARN 8280 --- [raizes-do-nordeste-backend] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-24T06:39:40.983-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2026-04-24T06:39:42.351-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-04-24T06:39:42.385-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Started RaizesBackendApplication in 12.906 seconds (process running for 14.238)
-2026-04-24T06:39:44.058-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-24T06:39:44.066-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-24T06:39:44.068-03:00  INFO 8280 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-04-24T18:22:39.512-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Starting RaizesBackendApplication using Java 17.0.18 with PID 15088 (C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes started by HOME in C:\Users\HOME\Documents\RaizesdoNordeste)
-2026-04-24T18:22:39.520-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : No active profile set, falling back to 1 default profile: "default"
-2026-04-24T18:22:47.769-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-24T18:22:47.962-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 174 ms. Found 8 JPA repository interfaces.
-2026-04-24T18:23:00.317-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-04-24T18:23:00.352-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-24T18:23:00.352-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
-2026-04-24T18:23:00.560-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-24T18:23:00.561-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 20422 ms
-2026-04-24T18:23:01.566-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-24T18:23:02.721-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6cc90398
-2026-04-24T18:23:02.726-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-24T18:23:02.860-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/raizesdb (MySQL 8.0)
-2026-04-24T18:23:03.015-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.097s)
-2026-04-24T18:23:03.040-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `raizesdb`: 1
-2026-04-24T18:23:03.069-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Schema `raizesdb` is up to date. No migration necessary.
-2026-04-24T18:23:03.370-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-24T18:23:03.530-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2026-04-24T18:23:03.632-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-24T18:23:04.366-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-24T18:23:04.551-03:00  WARN 15088 --- [raizes-do-nordeste-backend] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-24T18:23:08.861-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-24T18:23:09.194-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-24T18:23:10.122-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-04-24T18:23:10.775-03:00  WARN 15088 --- [raizes-do-nordeste-backend] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-24T18:23:11.813-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2026-04-24T18:23:14.399-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-04-24T18:23:14.434-03:00  INFO 15088 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Started RaizesBackendApplication in 36.891 seconds (process running for 39.346)
+2026-04-25T08:32:55.022-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Starting RaizesBackendApplication using Java 17.0.18 with PID 11760 (C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes started by HOME in C:\Users\HOME\Documents\RaizesdoNordeste)
+2026-04-25T08:32:55.038-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T08:32:58.811-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T08:32:59.104-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 245 ms. Found 8 JPA repository interfaces.
+2026-04-25T08:33:01.067-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-25T08:33:01.103-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T08:33:01.108-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-04-25T08:33:01.300-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T08:33:01.301-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6053 ms
+2026-04-25T08:33:02.411-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-25T08:33:02.888-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a7f9d45
+2026-04-25T08:33:02.895-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-25T08:33:02.999-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/raizesdb (MySQL 8.0)
+2026-04-25T08:33:03.137-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.085s)
+2026-04-25T08:33:03.167-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `raizesdb`: 1
+2026-04-25T08:33:03.199-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Schema `raizesdb` is up to date. No migration necessary.
+2026-04-25T08:33:03.449-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T08:33:03.657-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-04-25T08:33:03.797-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T08:33:04.957-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T08:33:05.115-03:00  WARN 11760 --- [raizes-do-nordeste-backend] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T08:33:07.421-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T08:33:07.662-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T08:33:08.652-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-04-25T08:33:08.672-03:00  WARN 11760 --- [raizes-do-nordeste-backend] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes\br\com\raizes\backend\api\controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes\br\com\raizes\backend\application\service\AuthService.class]: Failed to instantiate [br.com.raizes.backend.application.service.AuthService]: Constructor threw exception
+2026-04-25T08:33:08.677-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T08:33:08.732-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-25T08:33:08.771-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-25T08:33:08.786-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-04-25T08:33:08.850-03:00  INFO 11760 --- [raizes-do-nordeste-backend] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-04-25T08:33:08.929-03:00 ERROR 11760 --- [raizes-do-nordeste-backend] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes\br\com\raizes\backend\api\controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes\br\com\raizes\backend\application\service\AuthService.class]: Failed to instantiate [br.com.raizes.backend.application.service.AuthService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.4.jar:3.3.4]
+	at br.com.raizes.backend.RaizesBackendApplication.main(RaizesBackendApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authService' defined in file [C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes\br\com\raizes\backend\application\service\AuthService.class]: Failed to instantiate [br.com.raizes.backend.application.service.AuthService]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:306) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [br.com.raizes.backend.application.service.AuthService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:315) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 33 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error, insert "}" to complete MethodBody
+	Syntax error, insert "}" to complete ClassBody
+
+	at br.com.raizes.backend.application.service.AuthService.<init>(AuthService.java:18) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 35 common frames omitted
+
+2026-04-25T08:39:27.820-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Starting RaizesBackendApplication using Java 17.0.18 with PID 1432 (C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes started by HOME in C:\Users\HOME\Documents\RaizesdoNordeste)
+2026-04-25T08:39:27.823-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T08:39:30.869-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T08:39:31.035-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 150 ms. Found 8 JPA repository interfaces.
+2026-04-25T08:39:33.069-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-25T08:39:33.103-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T08:39:33.108-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-04-25T08:39:33.284-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T08:39:33.285-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5321 ms
+2026-04-25T08:39:35.536-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-25T08:39:36.537-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68479e8b
+2026-04-25T08:39:36.546-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-25T08:39:36.920-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/raizesdb (MySQL 8.0)
+2026-04-25T08:39:37.111-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.113s)
+2026-04-25T08:39:37.161-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `raizesdb`: 1
+2026-04-25T08:39:37.179-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Schema `raizesdb` is up to date. No migration necessary.
+2026-04-25T08:39:37.883-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T08:39:38.319-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-04-25T08:39:38.462-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T08:39:39.430-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T08:39:39.652-03:00  WARN 1432 --- [raizes-do-nordeste-backend] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T08:39:43.199-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T08:39:43.402-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T08:39:45.598-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-04-25T08:39:48.008-03:00  WARN 1432 --- [raizes-do-nordeste-backend] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-25T08:39:50.653-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-04-25T08:39:53.056-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-25T08:39:53.154-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Started RaizesBackendApplication in 25.978 seconds (process running for 26.932)
+2026-04-25T08:39:54.826-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-25T08:39:54.908-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-25T08:39:54.962-03:00  INFO 1432 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2026-04-25T08:41:23.726-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Starting RaizesBackendApplication using Java 17.0.18 with PID 10996 (C:\Users\HOME\Documents\RaizesdoNordeste\raizes-backend\target\classes started by HOME in C:\Users\HOME\Documents\RaizesdoNordeste)
+2026-04-25T08:41:23.732-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-04-25T08:41:26.728-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-25T08:41:26.987-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 227 ms. Found 8 JPA repository interfaces.
+2026-04-25T08:41:29.000-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-25T08:41:29.089-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-25T08:41:29.101-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-04-25T08:41:29.298-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-25T08:41:29.307-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5472 ms
+2026-04-25T08:41:30.623-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-25T08:41:31.005-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@ce19c86
+2026-04-25T08:41:31.017-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-25T08:41:31.104-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/raizesdb (MySQL 8.0)
+2026-04-25T08:41:31.275-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.121s)
+2026-04-25T08:41:31.353-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `raizesdb`: 1
+2026-04-25T08:41:31.391-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.f.core.internal.command.DbMigrate      : Schema `raizesdb` is up to date. No migration necessary.
+2026-04-25T08:41:31.657-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-25T08:41:31.860-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-04-25T08:41:31.997-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-25T08:41:32.752-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-25T08:41:32.901-03:00  WARN 10996 --- [raizes-do-nordeste-backend] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-25T08:41:35.190-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-25T08:41:35.376-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-25T08:41:36.289-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-04-25T08:41:37.331-03:00  WARN 10996 --- [raizes-do-nordeste-backend] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-25T08:41:38.444-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-04-25T08:41:39.942-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-25T08:41:39.993-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [main] b.c.r.backend.RaizesBackendApplication   : Started RaizesBackendApplication in 17.004 seconds (process running for 18.047)
+2026-04-25T08:41:41.089-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-25T08:41:41.104-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-25T08:41:41.109-03:00  INFO 10996 --- [raizes-do-nordeste-backend] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
